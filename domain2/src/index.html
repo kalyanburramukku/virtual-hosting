@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="player.css">
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="player.js"></script>
+    <script>
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'HTtuDh9rEPc',
+                playerVars: {
+			        "autoplay": 1,
+			        "controls": 1,
+			        "showinfo": 0,
+			        "modestbranding": 0,
+			        "loop": 1,
+			        "fs": 0,
+			        "cc_load_policy": 0,
+			        "iv_load_policy": 3,
+			    },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<!--Youtube-->
+<div id="player" style="display: none; visibility: hidden;"></div>
+
+<!--Player-->
+<div class="audio-player">
+    <div class="player-controls">
+        <div id="radioIcon"></div>
+        <button id="playAudio"></button>
+        <div id="seekObjContainer">
+            <div id="seekObj">
+                <div id="percentage"></div>
+            </div>
+        </div>
+        <p><small id="currentTime">00:00</small></p>
+    </div>
+</div>
+</body>
+</html>
